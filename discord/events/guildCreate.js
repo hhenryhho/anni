@@ -1,25 +1,29 @@
 // guildCreate.js - added to a server
 
-module.exports = async (Anni, guild) => {
+module.exports = async (Anni, Guild) => {
 
-  // log the new guild and data
-  let name = `Added to ${guild.name}`
-  let text = [
-    `Total Users: ${guild.memberCount}`,
-    `Server Owner: ${guild.owner.user.username}`,
-    `Now In ${Anni.Bot.Servers()} servers.`
+  let Owner = await Anni.users.fetch(Guild.ownerID)
+
+  let title = `Added to ${Guild.name}`
+  let stats = [
+    `Total Users: ${Guild.memberCount}`,
+    `Server Owner: ${Owner.username}`,
+    `*Now In ${Anni.Bot.Servers()} Servers.*`
   ]
 
-  // cache the owner as an admin, send the start message
-  Anni.Cache.server(guild.owner.user.id, guild.id)
-  guild.owner.send({ embed: {
-    author: { name: `Thanks for adding me to ${guild.name}` },
-    description: "Use `anni.help` or `anni.setup` to get started!"
-  }})
+  let hello = {
+    title: `Thanks for adding me to ${Guild.name}!`,
+    description: "Use `help` or `setup` to get started."
+  }
 
-  
-  let details = Anni.Bot.Details(guild)
+  // send the "welcome" message
+  // cache the owner as guild admin
+  Owner.send({ embed: hello })
+  Anni.Cache.server(Owner.id, Guild.id)
+
+  // cache the server details
+  let details = Anni.Bot.Details(Guild)
   await Anni.$Details.set(details)
-  return Anni.State(text.join('\n'), name)
 
+  return Anni.State(stats.join('\n'), title)
 }

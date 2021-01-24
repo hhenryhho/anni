@@ -6,7 +6,7 @@ module.exports = Anni => {
     Members: function () { return Anni.guilds.cache.reduce(totals, 0) },
 
     Server: function (id) { return Anni.guilds.cache.get(id) },
-    Member: function (guild, id) {  return guild.members.cache.get(id) },
+    Member: function (guild, id) { return guild.members.cache.get(id) },
 
     Details: function (guild) {
       let parse = JSON.stringify
