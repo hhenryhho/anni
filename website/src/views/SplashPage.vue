@@ -10,7 +10,7 @@
             <h1 class="sayhey">Say Hello To Anni.</h1>
             <h2>The Profile Bot For Discord.</h2>
 
-            <v-btn :href="$urlInvite" block color="primary" class="invite">
+            <v-btn :href="$urlInvite" target="_blank" block color="primary" class="invite">
               Invite To Your Server
             </v-btn>
 

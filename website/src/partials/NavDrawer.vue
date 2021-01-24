@@ -28,7 +28,7 @@
 
       <v-divider />
 
-      <v-list-item :href="$urlInvite">
+      <v-list-item :href="$urlInvite" target="_blank">
         <v-list-item-icon>
           <v-icon color="primary">mdi-plus-circle</v-icon>
         </v-list-item-icon>
@@ -43,18 +43,18 @@
           <v-list-item-title>Vote 4 Anni</v-list-item-title>
         </template>
 
-        <v-list-item :href="$urlVotes1">
+        <v-list-item :href="$urlVotes1" target="_blank">
           <v-list-item-icon><v-icon>mdi-menu-right</v-icon></v-list-item-icon>
           <v-list-item-title>Top.gg</v-list-item-title>
         </v-list-item>
 
-        <v-list-item :href="$urlVotes2">
+        <v-list-item :href="$urlVotes2" target="_blank">
           <v-list-item-icon><v-icon>mdi-menu-right</v-icon></v-list-item-icon>
           <v-list-item-title>BotsForDiscord</v-list-item-title>
         </v-list-item>
       </v-list-group>
 
-      <v-list-item :href="$urlGoGold">
+      <v-list-item :href="$urlGoGold" target="_blank">
         <v-list-item-icon>
           <v-icon color="orange">mdi-patreon</v-icon>
         </v-list-item-icon>
@@ -63,21 +63,21 @@
 
       <v-divider />
 
-      <v-list-item :href="$urlServer">
+      <v-list-item :href="$urlServer" target="_blank">
         <v-list-item-icon>
           <v-icon>mdi-discord</v-icon>
         </v-list-item-icon>
         <v-list-item-title>Support Server</v-list-item-title>
       </v-list-item>
 
-      <v-list-item :href="$urlTrello">
+      <v-list-item :href="$urlTrello" target="_blank">
         <v-list-item-icon>
           <v-icon>mdi-trello</v-icon>
         </v-list-item-icon>
         <v-list-item-title>What's Next?</v-list-item-title>
       </v-list-item>
 
-      <v-list-item :href="$urlGithub">
+      <v-list-item :href="$urlGithub" target="_blank">
         <v-list-item-icon>
           <v-icon>mdi-github</v-icon>
         </v-list-item-icon>

@@ -48,7 +48,7 @@
 
     <v-tooltip bottom>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn v-bind="attrs" v-on="on" icon :href="$urlInvite">
+        <v-btn v-bind="attrs" v-on="on" icon :href="$urlInvite" target="_blank">
           <v-icon color="primary">mdi-plus-circle</v-icon>
         </v-btn>
       </template>
