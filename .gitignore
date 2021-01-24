@@ -1,0 +1,9 @@
+.DS_Store
+node_modules
+configs.json
+discord.json
+icon.psd
+anni.log
+api-cache.store
+database.sqlite
+website/*.pem
