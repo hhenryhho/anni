@@ -37,9 +37,9 @@
   #anni:not(.mobile) #sidebar {
     position: absolute;
     top: 0; left: 0; bottom: 0;
-    width: 150px; padding: 10px 0 0 4px;
+    width: 200px; padding-top: 10px;
   }
-  #anni:not(.mobile) #content { padding-left: 150px; }
+  #anni:not(.mobile) #content { padding-left: 200px; }
   #anni.mobile #content { padding: 50px 0; }
 
   #sidebar .v-subheader { margin: 5px 0; }

@@ -4,31 +4,31 @@
     @input="$emit('input', $event)">
 
     <v-list nav dense>
-      <v-list-item href="" @click="$emit('input', false)">
+      <v-list-item href="" @click="close">
         <v-list-item-icon><v-icon>mdi-close</v-icon></v-list-item-icon>
         <v-list-item-title>Close Menu</v-list-item-title>
       </v-list-item>
 
       <v-divider />
 
-      <v-list-item to="/">
+      <v-list-item to="/" @click="close">
         <img src="@/assets/icon.png" alt="anni" id="home">
         <v-list-item-title>Anni Home</v-list-item-title>
       </v-list-item>
 
-      <v-list-item to="/docs">
+      <v-list-item to="/docs" @click="close">
         <v-list-item-icon><v-icon>mdi-help-circle</v-icon></v-list-item-icon>
         <v-list-item-title>Help Docs</v-list-item-title>
       </v-list-item>
 
-      <v-list-item to="/dash">
+      <v-list-item to="/dash" @click="close">
         <v-list-item-icon><v-icon>mdi-cog</v-icon></v-list-item-icon>
         <v-list-item-title>Dashboard</v-list-item-title>
       </v-list-item>
 
       <v-divider />
 
-      <v-list-item :href="$urlInvite" target="_blank">
+      <v-list-item :href="$urlInvite" target="_blank" @click="close">
         <v-list-item-icon>
           <v-icon color="primary">mdi-plus-circle</v-icon>
         </v-list-item-icon>
@@ -91,7 +91,8 @@
 <script>
   export default {
     name: 'NavDrawer',
-    props: [ 'open' ]
+    props: [ 'open' ],
+    methods: { close() { this.$emit('input', false) } }
   }
 </script>
 

@@ -1,35 +1,34 @@
 <template>
   <v-container fluid>
     <div id="sidebar">
-      <v-tabs vertical v-model="tab">
-        <v-list-item-avatar>
-          <v-img :src="avatar" />
-        </v-list-item-avatar>
+      <v-img :src="avatar" width="80" :class="{ topper: 1, icon }" />
+      <nav-floater>
+        <v-tabs vertical v-model="tab">
+          <v-tab v-if="!token" key="getauth">Discord Log In</v-tab>
 
-        <v-tab v-if="!token" key="getauth">Discord Log In</v-tab>
+          <v-tab v-if="user" key="profile">
+            <div class="narrow">{{ user.username }}#{{ user.discriminator }}</div>
+          </v-tab>
 
-        <v-tab v-if="user" key="profile">
-          <div class="narrow">{{ user.username }}#{{ user.discriminator }}</div>
-        </v-tab>
+          <v-divider v-if="list.length" />
+          <v-menu v-if="list.length" offset-x>
+            <template v-slot:activator="{ on, attrs }">
+              <v-subheader v-bind="attrs" v-on="on">
+                <strong class="narrow">{{ guild.name || "Select Server" }}</strong>
+              </v-subheader>
+            </template>
+            <v-list>
+              <v-list-item v-for="(g, i) in list" :key="i" @click="setGuild(g)">
+                <v-list-item-title>{{ g.name }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
 
-        <v-divider v-if="list.length" />
-        <v-menu v-if="list.length" offset-x>
-          <template v-slot:activator="{ on, attrs }">
-            <v-subheader v-bind="attrs" v-on="on">
-              <strong class="narrow">{{ guild.name || "Select Server" }}</strong>
-            </v-subheader>
-          </template>
-          <v-list>
-            <v-list-item v-for="(g, i) in list" :key="i" @click="setGuild(g)">
-              <v-list-item-title>{{ g.name }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-
-        <v-tab v-if="config" key="configs">Configs</v-tab>
-        <v-tab v-if="config" key="actions">Actions</v-tab>
-        <v-tab v-if="config" key="options">Options</v-tab>
-      </v-tabs>
+          <v-tab v-if="config" key="configs">Configs</v-tab>
+          <v-tab v-if="config" key="actions">Actions</v-tab>
+          <v-tab v-if="config" key="options">Options</v-tab>
+        </v-tabs>
+      </nav-floater>
     </div>
 
     <div id="content">
@@ -71,7 +70,7 @@
       <div class="panel">
         <anni-checks v-bind="checks" />
 
-        <v-divider class="mb-5" />
+        <v-divider class="mb-5" v-if="!(token && !user)" />
 
         <v-card class="mt-5">
           <v-card-text class="text-center">
@@ -141,8 +140,14 @@
 <style scoped>
   .discord { font-size: 60px; }
   .linked { text-decoration: none; }
-  .narrow { max-width: 105px; overflow: hidden; text-overflow: ellipsis; }
+  .narrow { max-width: 135px; overflow: hidden; text-overflow: ellipsis; }
   .toggle { justify-content: flex-start; padding: 0 17px !important; }
   .switch { margin: 0 0 10px; }
   .v-menu { z-index: 15; }
+  .topper { 
+    border-radius: 40px;
+    margin: -10px auto -25px; 
+    border: 5px solid #fff;
+   }
+   .topper.icon { border-color: #ddd; background: #ddd; }
 </style>

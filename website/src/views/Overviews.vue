@@ -1,21 +1,23 @@
 <template>
   <v-container fluid>
     <div id="sidebar">
-      <v-tabs vertical v-model="tab">
-        <v-subheader><strong>Guides</strong></v-subheader>
-        <v-tab key="user">Profiles</v-tab>
-        <v-tab key="server">Options</v-tab>
-        <v-tab key="actions">Actions</v-tab>
-        <v-tab key="starboard">Starboard</v-tab>
-        <v-subheader><strong>Commands</strong></v-subheader>
-        <v-tab key="cmd_users">For Users</v-tab>
-        <v-tab key="cmd_mods">For Mods</v-tab>
-        <v-tab key="cmd_admin">For Admins</v-tab>
-      </v-tabs>
+      <nav-floater>
+        <v-tabs vertical v-model="tab">
+          <v-subheader><strong>Guides</strong></v-subheader>
+          <v-tab key="user">Profiles</v-tab>
+          <v-tab key="server">Options</v-tab>
+          <v-tab key="actions">Actions</v-tab>
+          <v-tab key="starboard">Starboard</v-tab>
+          <v-subheader><strong>Commands</strong></v-subheader>
+          <v-tab key="cmd_users">For Users</v-tab>
+          <v-tab key="cmd_mods">For Mods</v-tab>
+          <v-tab key="cmd_admin">For Admins</v-tab>
+        </v-tabs>
+      </nav-floater>
     </div>
 
-    <div id="content" class="docs">
-      <v-tabs-items v-model="tab">    
+    <div id="content">
+      <v-tabs-items v-model="tab" class="docs">
         <v-tab-item key="user">
           <div class="panel">
             <v-card>
@@ -281,14 +283,13 @@
 
 <style scoped>
   .v-card { margin: 6px 5px 19px; }
-  h3 { margin-top: 0 !important; }
+  h3 { margin: 20px 0 5px 0 !important; }
   .sub { padding: 0; margin: 30px 0 15px !important; }
   .docs pre + br { display: none; }
   .subs .v-card { border-left: 3px solid #6666f7; }
   .subs .v-card__title { padding: 5px 16px 0; }
   .subs .v-card__text { padding-bottom: 10px; }
   .config-list >>> h3 { margin-top: 0; }
-
 
   .docs .examples p { margin-bottom: 10px; }
   .docs .examples h3 { margin-bottom: 5px; }
@@ -297,4 +298,6 @@
   .docs .examples em { display: block; }
   .docs .examples h3 + em { margin: -8px 0 5px; }
   .docs .examples kbd + em { margin: 5px 0 10px; }
+  .docs .examples { padding-top: 0; }
+  .docs .v-card__text:not(.examples):not(:last-of-type) { padding-bottom: 0; }
 </style>

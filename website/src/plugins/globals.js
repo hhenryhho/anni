@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+import NavFloater from '@/partials/NavFloater.vue'
 import AnniChecks from '@/partials/AnniChecks.vue'
 import ConfigWrap from '@/partials/ConfigWrap.vue'
 import ConfigList from '@/partials/ConfigList.vue'
@@ -13,6 +14,7 @@ export default {
     Vue.prototype.axios = axios
 
     // add global components
+    Vue.component('nav-floater', NavFloater)
     Vue.component('anni-checks', AnniChecks)
     Vue.component('config-wrap', ConfigWrap)
     Vue.component('config-list', ConfigList)
