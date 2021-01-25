@@ -8,8 +8,8 @@ module.exports = (Model, Types) => {
       key:   { type: Types.STRING }
     }),
 
-    get: async function(pin, guild) {
-      let _search = { where: { pin, guild } }
+    get: async function(key, guild) {
+      let _search = { where: { key, guild } }
       return Model.$Send(await this.table.findOne(_search))
     },
 

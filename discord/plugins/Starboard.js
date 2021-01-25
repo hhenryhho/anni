@@ -35,12 +35,12 @@ module.exports = Anni => {
       let post = { name, desc, icon, grid, image: React.image }
 
       let sent = await Anni.Reply({ channel: React.board }, post).send()
-      star.key = sent.id
+      star.pin = sent.id
 
       await Anni.$Starred.new(star)
       await Anni.$Profile.star(user.id, star.count)
 
-      let server = Anni.Server(React._star.guild)
+      let server = Anni.Bot.Server(React._star.guild)
       return Anni.Log(`Starboard Post: ${server.name}`)
     },
     edit: async function (React) {
@@ -48,7 +48,7 @@ module.exports = Anni => {
       if (!pinned) return
 
       // update the stat line
-      let embed = { ...pinned.embed[0] }
+      let embed = { ...pinned.embeds[0] }
       let stats = embed.fields[0].value.split(' - ')
        stats[0] = `**${React.count}** ${React._icon}`
       embed.fields[0].value = stats.join(' - ')
@@ -61,7 +61,7 @@ module.exports = Anni => {
       await Anni.$Starred.set(star.guild, star)
       await Anni.$Profile.star(user, star.count, post.count)
 
-      let server = Anni.Server(star.guild)
+      let server = Anni.Bot.Server(star.guild)
       return Anni.Log(`Starboard Update: ${server.name}`)
     },
 
