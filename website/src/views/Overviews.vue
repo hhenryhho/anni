@@ -75,7 +75,7 @@
             <v-card>
               <v-card-title>Managing Options</v-card-title>
               <v-card-text>
-                <p>Admins can add profile options to their custom server profiles. All options are text based, which means you set the label, description, and tag, and then when a user sets up a profile in your server, they populate it with their own text datanni.</p>
+                <p>Admins can add profile options to their custom server profiles. All options are text based, which means you set the label, description, and tag, and then when a user sets up a profile in your server, they populate it with their own text data.</p>
                 <p>An Option consits of a tag (an identifier, used for setting the option and editing/removing it), a Label (what actually shows up on the profile), and a description. (Useful for when you're looking up your options, and displayed when users set their commands. Separate the label and description from the tag using <kbd>-</kbd>.</p>
               </v-card-text>
               <v-card-text class="examples">
@@ -94,7 +94,7 @@
             <v-card>
               <v-card-title>Setting A Custom Option</v-card-title>
               <v-card-text>
-                <p>Once a profile option has been created, when you run <kbd>anni.profile setup</kbd> in the server, Anni will DM you instructions for setting up your profile, including a list of all the available profile fields, their descriptions, and the command to set the datanni.</p>
+                <p>Once a profile option has been created, when you run <kbd>anni.profile setup</kbd> in the server, Anni will DM you instructions for setting up your profile, including a list of all the available profile fields, their descriptions, and the command to set the data.</p>
               </v-card-text>
               <v-card-text class="examples">
                 <h3>Setting A Profile Option</h3>
