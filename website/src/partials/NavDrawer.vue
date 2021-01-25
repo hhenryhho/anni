@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    clipped app :value="open"
+    clipped app temporary :value="open"
     @input="$emit('input', $event)">
 
     <v-list nav dense>
