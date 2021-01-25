@@ -35,8 +35,8 @@
   }
   
   #anni:not(.mobile) #sidebar {
-    position: absolute;
-    top: 0; left: 0; bottom: 0;
+    position: fixed;
+    top: 64px; left: 0; bottom: 0;
     width: 200px; padding-top: 10px;
   }
   #anni:not(.mobile) #content { padding-left: 200px; }
