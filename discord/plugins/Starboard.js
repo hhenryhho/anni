@@ -35,10 +35,13 @@ module.exports = Anni => {
       let post = { name, desc, icon, grid, image: React.image }
 
       let sent = await Anni.Reply({ channel: React.board }, post).send()
-      star.pin = sent.id
+      star.key = sent.id
 
       await Anni.$Starred.new(star)
       await Anni.$Profile.star(user.id, star.count)
+
+      let server = Anni.Server(React._star.guild)
+      return Anni.Log(`Starboard Post: ${server.name}`)
     },
     edit: async function (React) {
       let pinned = await React.board.messages.fetch(React._post.pin)
@@ -57,6 +60,9 @@ module.exports = Anni => {
       let user = React.message.author.id
       await Anni.$Starred.set(star.guild, star)
       await Anni.$Profile.star(user, star.count, post.count)
+
+      let server = Anni.Server(star.guild)
+      return Anni.Log(`Starboard Update: ${server.name}`)
     },
 
     icon: (str) => str.length > 1 ? str.split(':')[2] : str,
