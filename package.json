@@ -8,9 +8,8 @@
     "apis": "node Server.js",
     "json": "node Export.js",
     "dash": "cd website && vue-cli-service serve",
-    "build": "cd website && vue-cli-service build && cd dist && echo 'getanni.com' > CNAME && cp index.html 404.html",
-    "deploy": "git subtree split --prefix website/dist -b gh-pages && git push -f origin gh-pages:gh-pages && git branch -D gh-pages"
-  },
+		"send": "sh Deploy.sh"  
+},
   "dependencies": {
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
