@@ -23,9 +23,5 @@ module.exports = {
       await Anni.Reply(Msg, '{{ Rebooting... }}').send()
       return Anni.Exec('pm2 restart 1')
     })
-  },
-
-  test: async function (Anni, Msg) {
-    return Anni.Reply(Msg, 'Sure.').send()
   }
 }

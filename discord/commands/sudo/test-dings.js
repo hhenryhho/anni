@@ -31,9 +31,5 @@ module.exports = {
     await Anni.Reminders.check()
 
     return true
-  },
-
-  test: async function (Anni, Msg) {
-    return Anni.Reply(Msg, 'Inception!').send()
   }
 }
