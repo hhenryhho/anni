@@ -6,6 +6,7 @@
 /**********************************/
 
 const winston = require('winston')
+const logbook = require('read-last-lines')
 const { format, transports } = winston, { combine } = format
 
 let level = 'anni', filename = 'anni.log', time = 'HH:mm:ss'
@@ -43,4 +44,6 @@ module.exports = Model => {
     let channel = this.channels.cache.get(this.bot.logs)
     if (channel)  this.Reply({ channel }, post).send()
   }
+
+  Model.Logs = async () => await logbook.read(filename, 20)
 }

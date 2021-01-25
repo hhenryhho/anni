@@ -8,8 +8,8 @@
     "apis": "node Server.js",
     "json": "node Export.js",
     "dash": "cd website && vue-cli-service serve",
-		"send": "sh Deploy.sh"  
-},
+    "send": "sh Deploy.sh"
+  },
   "dependencies": {
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
@@ -21,6 +21,7 @@
     "node-fetch": "^2.6.1",
     "node-localstorage": "^2.1.6",
     "node-sass": "^5.0.0",
+    "read-last-lines": "^1.8.0",
     "remarkable": "^2.0.1",
     "sass-loader": "^10.0.5",
     "sequelize": "^6.3.4",
