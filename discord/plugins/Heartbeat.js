@@ -12,7 +12,6 @@ module.exports = Anni => {
     },
     status: function () {
       let pool = [
-        `RIP Chandler`,
         `v${Anni.pkg.version}`,
         `${Anni.Bot.Members()} users`,
         `${Anni.Bot.Servers()} servers` 
