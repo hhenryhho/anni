@@ -6,13 +6,14 @@ module.exports = (Anni, React) => {
   let words = where.content
   let embed = where.embeds[0]
   let files = where.attachments
+  let thumb = embed ? embed.thumbnail ? embed.thumbnail.url : '' : ''
 
   // extract an image
   let isgif = embed && embed.url && embed.url.indexOf('.gif') > 0
   let added = files.size ? files.entries().next().value[1].url : false
   if (isgif)  isgif = `${embed.url.split('.gif')[0].gif}`
 
-  if (embed)  React.image = isgif || embed.thumbnail.url
+  if (embed)  React.image = isgif || thumb
   if (added)  React.image = added
 
   // remove count for self-reactions
