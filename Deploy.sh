@@ -1,10 +1,13 @@
 #!/bin/sh
 
-# Build
+# Make sure we're current
+git pull
+
+# Build out the website
 cd website
 vue-cli-service build
 
-# Add CNAME
+# Add CNAME to build
 cd dist
 echo "getanni.com" > CNAME
 
