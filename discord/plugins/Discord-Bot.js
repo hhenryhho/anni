@@ -35,7 +35,7 @@ module.exports = Anni => {
     Can: {
       check(Msg, flag, channel) {
         let chan = channel || Msg.channel
-        let auth = chan.guild || false
+        let auth = chan ? chan.guild : false
         return !auth || chan.permissionsFor(auth.me).has(flag, false)
       },
       Reply(Msg, chan) { return this.check(Msg, 'SEND_MESSAGES',   chan) },
