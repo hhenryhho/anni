@@ -28,7 +28,7 @@ module.exports = Anni => {
 
         let post = { text: members.join(" "), desc: message }
         let channel = Anni.channels.cache.get(configs.birthday)
-        await Anni.Reply({ channel }, post).send()
+        if (channel) await Anni.Reply({ channel }, post).send()
       }
     },
     sort: async function (list) {
