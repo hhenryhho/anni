@@ -20,8 +20,8 @@ module.exports = Anni => {
     },
 
     User: async function (Msg, query) {
-      if (!Msg.guild) return false
-      let fetched = await Msg.guild.members.fetch({ query, limit: 1 })
+      if (!Msg.auth) return false
+      let fetched = await Msg.auth.members.fetch({ query, limit: 1 })
       return fetched.size ? fetched.entries().next().value[1] : false
     },
     Channel: function (Msg, str, id) {
