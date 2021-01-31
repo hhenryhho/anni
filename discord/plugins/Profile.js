@@ -51,7 +51,10 @@ module.exports = Anni => {
         results.push(`\n**${opt.name}**\n${opt.data}`)
       } return results
     },
-    
-    show: (profile, guild) => guild && JSON.parse(profile.list).includes(guild)
+
+    show: (profile, guild) => {
+      let list = JSON.parse(profile.list)
+      return list.includes ? list.includes(guild) : false
+    }
   }
 }
