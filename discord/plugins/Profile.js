@@ -3,7 +3,8 @@
 module.exports = Anni => {
   Anni.Profile = {
     data: async function (profile, guild) {
-      let year = this.year(profile) ? ` - (age ${year})` : false
+      let _age = this.year(profile) || false
+      let year = _age ? ` - (age ${_age})` : false
       let bday = `**Birthday:**  ${this.bday(profile.bday).text}`
       let zone = `**Timezone:**  ${this.zone(profile.zone).text}`
       let star = await this.star(profile, guild)
